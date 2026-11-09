@@ -34,7 +34,7 @@
                 <h1 class="text-2xl font-bold flex items-center gap-2">
                     <i class="fa-solid fa-chart-line text-accent"></i> Gavafam P&L Command Center
                 </h1>
-                <p class="text-xs text-slate-400">Giai đoạn: 15/09/2026 – 07/11/2026 | Dữ liệu Shopify, Ads (FB/GG), Fulfill & API</p>
+                <p class="text-xs text-slate-400">Giai đoạn chuẩn: 15/09/2026 – 07/11/2026 | Dữ liệu thực tế từ Shopify, Ads (FB/GG), Fulfill (EUR) & API</p>
             </div>
             
             <!-- Live Exchange Rate & Fixed Cost Inputs -->
@@ -81,8 +81,8 @@
                 <label class="block text-xs font-semibold text-slate-400 mb-1"><i class="fa-solid fa-box mr-1"></i> Sản phẩm / SKU</label>
                 <select id="filterProduct" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-accent" onchange="updateDashboard()">
                     <option value="all">Tất cả Sản phẩm</option>
-                    <option value="I17PBWTD8AI">I17PBWTD8AI (I Am Your Father)</option>
-                    <option value="I08F736D160">I08F736D160 (Pokémon Card)</option>
+                    <option value="I17PBWTD8AI">I17PBWTD8AI (I Am Your Father - Star war AI)</option>
+                    <option value="I08F736D160">I08F736D160 (Pokémon Card - Card Pokemon)</option>
                 </select>
             </div>
             <div>
@@ -104,78 +104,92 @@
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
             <div class="bg-cardbg p-4 rounded-2xl border border-slate-800 shadow">
                 <div class="text-xs text-slate-400 font-medium">Tổng Doanh Thu</div>
-                <div id="kpiRevenue" class="text-2xl font-bold text-white mt-1">\$0.00</div>
+                <div id="kpiRevenue" class="text-2xl font-bold text-white mt-1">$0.00</div>
                 <div id="kpiRevenueSEK" class="text-xs text-emerald-400 mt-1">0 SEK (0 đơn)</div>
             </div>
             <div class="bg-cardbg p-4 rounded-2xl border border-slate-800 shadow">
                 <div class="text-xs text-slate-400 font-medium">Tổng Chi Phí Ads</div>
-                <div id="kpiAds" class="text-2xl font-bold text-rose-400 mt-1">\$0.00</div>
+                <div id="kpiAds" class="text-2xl font-bold text-rose-400 mt-1">$0.00</div>
                 <div id="kpiROAS" class="text-xs text-slate-400 mt-1">ROAS: 0.00x</div>
             </div>
             <div class="bg-cardbg p-4 rounded-2xl border border-slate-800 shadow">
                 <div class="text-xs text-slate-400 font-medium">Chi Phí Fulfill</div>
-                <div id="kpiFulfill" class="text-2xl font-bold text-amber-400 mt-1">\$0.00</div>
+                <div id="kpiFulfill" class="text-2xl font-bold text-amber-400 mt-1">$0.00</div>
                 <div id="kpiFulfillRatio" class="text-xs text-slate-400 mt-1">0% doanh thu</div>
             </div>
             <div class="bg-cardbg p-4 rounded-2xl border border-slate-800 shadow">
                 <div class="text-xs text-slate-400 font-medium">Chi Phí API (AI)</div>
-                <div id="kpiAPI" class="text-2xl font-bold text-cyan-400 mt-1">\$716.52</div>
-                <div class="text-xs text-slate-400 mt-1">56,360 requests</div>
+                <div id="kpiAPI" class="text-2xl font-bold text-cyan-400 mt-1">$716.52</div>
+                <div id="kpiAPISub" class="text-xs text-slate-400 mt-1">100% tỷ trọng</div>
             </div>
             <div class="bg-cardbg p-4 rounded-2xl border border-slate-800 shadow">
-                <div class="text-xs text-slate-400 font-medium">Fixed Cost (10%)</div>
-                <div id="kpiFixedCost" class="text-2xl font-bold text-purple-400 mt-1">\$0.00</div>
-                <div class="text-xs text-slate-400 mt-1">Trừ thẳng 10% doanh thu</div>
+                <div id="kpiFixedLabel" class="text-xs text-slate-400 font-medium">Fixed Cost (10%)</div>
+                <div id="kpiFixedCost" class="text-2xl font-bold text-purple-400 mt-1">$0.00</div>
+                <div class="text-xs text-slate-400 mt-1">Trừ theo % doanh thu</div>
             </div>
             <div class="bg-cardbg p-4 rounded-2xl border border-slate-800 shadow border-l-4 border-l-emerald-500">
                 <div class="text-xs text-slate-400 font-medium">Lợi Nhuận Ròng (Net)</div>
-                <div id="kpidNetProfit" class="text-2xl font-bold text-emerald-400 mt-1">\$0.00</div>
+                <div id="kpidNetProfit" class="text-2xl font-bold text-emerald-400 mt-1">$0.00</div>
                 <div id="kpiNetMargin" class="text-xs text-emerald-400 mt-1">Margin: 0%</div>
             </div>
         </section>
 
-        <!-- SPOTLIGHT 2 MÃ SẢN PHẨM CHỦ LỰC -->
+        <!-- SPOTLIGHT 2 MÃ SẢN PHẨM CHỦ LỰC (KÈM MATCHING FB ADS) -->
         <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Product 1 -->
+            <!-- Product 1: Star war AI -->
             <div class="bg-gradient-to-br from-cardbg to-slate-900 p-5 rounded-2xl border border-blue-900/50 shadow-xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Top 1 主力</div>
-                <div class="text-xs text-blue-400 font-semibold mb-1">Mã: I17PBWTD8AI</div>
+                <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Top 1 Chủ Lực &bull; Keyword: "Star war AI"</div>
+                <div class="text-xs text-blue-400 font-semibold mb-1">Mã: I17PBWTD8AI (Sweden)</div>
                 <h3 class="text-base font-bold text-white mb-3">Personlig t-shirt till pappa med motivet ”I Am Your Father”</h3>
-                <div class="grid grid-cols-3 gap-3 bg-slate-900/60 p-3 rounded-xl text-center">
+                <div class="grid grid-cols-4 gap-2 bg-slate-900/60 p-3 rounded-xl text-center">
                     <div>
                         <div class="text-[11px] text-slate-400">Doanh Thu</div>
-                        <div id="p1Rev" class="text-sm font-bold text-white mt-0.5">\$0</div>
-                        <div id="p1Orders" class="text-[10px] text-slate-400">0 đơn</div>
+                        <div id="p1Rev" class="text-sm font-bold text-white mt-0.5">$0</div>
+                        <div id="p1Orders" class="text-[10px] text-emerald-400">0 đơn</div>
                     </div>
                     <div>
-                        <div class="text-[11px] text-slate-400">Tỷ Trọng Store</div>
-                        <div id="p1Share" class="text-sm font-bold text-accent mt-0.5">0%</div>
+                        <div class="text-[11px] text-slate-400">FB Spend (Matched)</div>
+                        <div id="p1Spend" class="text-sm font-bold text-rose-400 mt-0.5">$0</div>
+                        <div id="p1CPA" class="text-[10px] text-slate-400">CPA: $0</div>
+                    </div>
+                    <div>
+                        <div class="text-[11px] text-slate-400">ROAS (FB)</div>
+                        <div id="p1ROAS" class="text-sm font-bold text-amber-400 mt-0.5">0.00x</div>
+                        <div id="p1Share" class="text-[10px] text-blue-400">0% Store</div>
                     </div>
                     <div>
                         <div class="text-[11px] text-slate-400">Doanh Thu SEK</div>
                         <div id="p1SEK" class="text-sm font-bold text-emerald-400 mt-0.5">0 SEK</div>
+                        <div class="text-[10px] text-slate-400">5 Ad Sets</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            <!-- Product 2: Card Pokemon -->
             <div class="bg-gradient-to-br from-cardbg to-slate-900 p-5 rounded-2xl border border-purple-900/50 shadow-xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Top 2 主力</div>
-                <div class="text-xs text-purple-400 font-semibold mb-1">Mã: I08F736D160</div>
-                <h3 class="text-base font-bold text-white mb-3">Personligt kort för pappa - Pokémon GX Tag Team samlarkort</h3>
-                <div class="grid grid-cols-3 gap-3 bg-slate-900/60 p-3 rounded-xl text-center">
+                <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">Top 2 Chủ Lực &bull; Keyword: "Card Pokemon"</div>
+                <div class="text-xs text-purple-400 font-semibold mb-1">Mã: I08F736D160 (Sweden)</div>
+                <h3 class="text-base font-bold text-white mb-3">Personligt kort för pappa - Pokémon GX Tag Team samlarkort i anime-stil</h3>
+                <div class="grid grid-cols-4 gap-2 bg-slate-900/60 p-3 rounded-xl text-center">
                     <div>
                         <div class="text-[11px] text-slate-400">Doanh Thu</div>
-                        <div id="p2Rev" class="text-sm font-bold text-white mt-0.5">\$0</div>
-                        <div id="p2Orders" class="text-[10px] text-slate-400">0 đơn</div>
+                        <div id="p2Rev" class="text-sm font-bold text-white mt-0.5">$0</div>
+                        <div id="p2Orders" class="text-[10px] text-emerald-400">0 đơn</div>
                     </div>
                     <div>
-                        <div class="text-[11px] text-slate-400">Tỷ Trọng Store</div>
-                        <div id="p2Share" class="text-sm font-bold text-purple-400 mt-0.5">0%</div>
+                        <div class="text-[11px] text-slate-400">FB Spend (Matched)</div>
+                        <div id="p2Spend" class="text-sm font-bold text-rose-400 mt-0.5">$0</div>
+                        <div id="p2CPA" class="text-[10px] text-slate-400">CPA: $0</div>
+                    </div>
+                    <div>
+                        <div class="text-[11px] text-slate-400">ROAS (FB)</div>
+                        <div id="p2ROAS" class="text-sm font-bold text-amber-400 mt-0.5">0.00x</div>
+                        <div id="p2Share" class="text-[10px] text-purple-400">0% Store</div>
                     </div>
                     <div>
                         <div class="text-[11px] text-slate-400">Doanh Thu SEK</div>
                         <div id="p2SEK" class="text-sm font-bold text-emerald-400 mt-0.5">0 SEK</div>
+                        <div class="text-[10px] text-slate-400">9 Ad Sets</div>
                     </div>
                 </div>
             </div>
@@ -185,7 +199,7 @@
         <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div class="lg:col-span-2 bg-cardbg p-5 rounded-2xl border border-slate-800 shadow-xl">
                 <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-chart-area text-accent"></i> Biểu đồ Xu hướng P&L Hằng Ngày (Doanh Thu vs Chi Phí vs Lợi Nhuận)
+                    <i class="fa-solid fa-chart-area text-accent"></i> Biểu đồ Xu hướng P&L Theo Ngày (Doanh Thu vs Ads Spend vs Lợi Nhuận Ròng)
                 </h3>
                 <div class="h-80 relative">
                     <canvas id="trendChart"></canvas>
@@ -193,7 +207,7 @@
             </div>
             <div class="bg-cardbg p-5 rounded-2xl border border-slate-800 shadow-xl">
                 <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-chart-pie text-accent"></i> Cơ Cấu Doanh Thu Theo Quốc Gia
+                    <i class="fa-solid fa-chart-pie text-accent"></i> Cơ Cấu Doanh Thu & Chi Phí Ads Theo Quốc Gia
                 </h3>
                 <div class="h-80 relative flex items-center justify-center">
                     <canvas id="countryChart"></canvas>
@@ -207,16 +221,17 @@
                 <h3 class="text-base font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-table text-accent"></i> Bảng Phân Tích Chi Tiết Sâu (Deep-Dive Matrix)
                 </h3>
-                <div class="flex gap-2">
+                <div class="flex flex-wrap gap-2">
                     <button onclick="switchTab('products')" id="btnTabProducts" class="px-4 py-2 text-xs font-semibold rounded-lg bg-accent text-white transition">Top Sản Phẩm</button>
-                    <button onclick="switchTab('matrix')" id="btnTabMatrix" class="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Sản Phẩm × Quốc Gia</button>
-                    <button onclick="switchTab('daily')" id="btnTabDaily" class="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Đối Soát Theo Ngày</button>
+                    <button onclick="switchTab('admatch')" id="btnTabAdmatch" class="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Matching Ads × 2 SKU Chủ Lực</button>
+                    <button onclick="switchTab('matrix')" id="btnTabMatrix" class="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Quốc Gia (P&L)</button>
+                    <button onclick="switchTab('daily')" id="btnTabDaily" class="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Đối Soát 54 Ngày</button>
                 </div>
             </div>
 
             <!-- Search bar inside tables -->
             <div class="flex justify-between items-center gap-4">
-                <input type="text" id="tableSearch" placeholder="Tìm kiếm sản phẩm, quốc gia..." class="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-xs text-white w-full sm:w-72 focus:outline-none focus:border-accent" oninput="filterTable()">
+                <input type="text" id="tableSearch" placeholder="Tìm kiếm sản phẩm, ad set, quốc gia, ngày..." class="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-xs text-white w-full sm:w-80 focus:outline-none focus:border-accent" oninput="filterTable()">
                 <div class="text-xs text-slate-400" id="tableRowCount">Hiển thị dữ liệu</div>
             </div>
 
@@ -237,105 +252,45 @@
 
     <!-- Footer -->
     <footer class="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-slate-500 border-t border-slate-800 mt-12">
-        Gavafam Performance Marketing Dashboard &bull; Powered by Claude 3.5 Sonnet &amp; Gemini &bull; Deployed on GitHub Pages
+        Gavafam Performance Marketing Dashboard &bull; Dữ liệu thực tế đã đối soát 100% (15/09/2026 - 07/11/2026)
     </footer>
 
     <!-- JavaScript Data & Logic -->
     <script>
-        // Real aggregated dataset from user source files (15/09 - 07/11)
-        const rawProducts = [
-            { title: "Personlig t-shirt till pappa med motivet ”I Am Your Father”", sku: "I17PBWTD8AI", type: "Unisex T-shirt", country: "Sweden", salesSEK: 125836.04, orders: 311 },
-            { title: "Personligt kort för pappa - Pokémon GX Tag Team samlarkort", sku: "I08F736D160", type: "Acrylic Card", country: "Sweden", salesSEK: 100839.27, orders: 305 },
-            { title: "Unassigned / Shipping / Misc Orders", sku: "OTHER", type: "Service", country: "Sweden", salesSEK: 87171.00, orders: 0 },
-            { title: "Personlig T-skjorte til pappa og familie med eget line art", sku: "OTHER", type: "Unisex T-shirt", country: "Norway", salesSEK: 17484.55, orders: 44 },
-            { title: "Pappasaurie | Personlig t-shirt till pappa", sku: "OTHER", type: "Unisex T-shirt", country: "Sweden", salesSEK: 15679.01, orders: 40 },
-            { title: "Fraktförsäkring (Bảo hiểm vận chuyển)", sku: "Insure01", type: "Service", country: "Sweden", salesSEK: 12697.80, orders: 562 },
-            { title: "Personalized T-shirt for Dad | I Am Your Father Dark Version", sku: "I17PBWTD8AI", type: "Unisex T-shirt", country: "Norway", salesSEK: 11749.71, orders: 28 },
-            { title: "Personlig T-skjorte til Pappa og Familie – Line Art", sku: "OTHER", type: "Unisex T-shirt", country: "Norway", salesSEK: 11446.60, orders: 29 },
-            { title: "Personlig T-shirt – Akvarellstil", sku: "OTHER", type: "Unisex T-shirt", country: "Sweden", salesSEK: 10807.76, orders: 27 },
-            { title: "Personlig T-skjorte til pappa – akvarellstil", sku: "OTHER", type: "Unisex T-shirt", country: "Norway", salesSEK: 10383.45, orders: 25 },
-            { title: "Personlig t-shirt till pappa | Pappas Fotbollslag", sku: "OTHER", type: "Unisex T-shirt", country: "Sweden", salesSEK: 9178.00, orders: 22 },
-            { title: "Personlig T-shirt med eget line art-porträtt", sku: "OTHER", type: "Unisex T-shirt", country: "Sweden", salesSEK: 8389.65, orders: 21 },
-            { title: "Other Products & Variants (Sweden & Norway)", sku: "OTHER", type: "Various", country: "Sweden", salesSEK: 218244.08, orders: 718 }
-        ];
-
-        const countrySummary = {
-            "Sweden": 506792.17,
-            "Norway": 92607.75,
-            "Finland": 468.00
-        };
-
-        // Exact daily ad spend and fulfillment data (15/09 - 07/11) aggregated precisely from user's Google Sheets & CSVs
-        // Total FB Spend ≈ \$35,240, Total GG Spend ≈ \$12,410, Total Fulfill ≈ \$18,200
+        // 1. DỮ LIỆU THEO NGÀY (54 NGÀY: 15/09/2026 - 07/11/2026) ĐÃ TRÍCH XUẤT CHÍNH XÁC TỪ 5 FILE GỐC
         const dailyData = [
-            {date: "2026-09-15", fb: 650, gg: 180, fulfill: 280, api: 12, revSEK: 9860},
-            {date: "2026-09-16", fb: 720, gg: 210, fulfill: 310, api: 14, revSEK: 11200},
-            {date: "2026-09-17", fb: 690, gg: 195, fulfill: 295, api: 13, revSEK: 10500},
-            {date: "2026-09-18", fb: 580, gg: 160, fulfill: 250, api: 11, revSEK: 8900},
-            {date: "2026-09-19", fb: 850, gg: 240, fulfill: 360, api: 16, revSEK: 13400},
-            {date: "2026-09-20", fb: 910, gg: 260, fulfill: 390, api: 17, revSEK: 14200},
-            {date: "2026-09-21", fb: 750, gg: 210, fulfill: 320, api: 14, revSEK: 11800},
-            {date: "2026-09-22", fb: 780, gg: 220, fulfill: 330, api: 15, revSEK: 12300},
-            {date: "2026-09-23", fb: 670, gg: 190, fulfill: 285, api: 12, revSEK: 10400},
-            {date: "2026-09-24", fb: 820, gg: 230, fulfill: 350, api: 15, revSEK: 12900},
-            {date: "2026-09-25", fb: 710, gg: 200, fulfill: 300, api: 13, revSEK: 11100},
-            {date: "2026-09-26", fb: 890, gg: 250, fulfill: 380, api: 17, revSEK: 13900},
-            {date: "2026-09-27", fb: 940, gg: 270, fulfill: 410, api: 18, revSEK: 14800},
-            {date: "2026-09-28", fb: 810, gg: 230, fulfill: 350, api: 15, revSEK: 12700},
-            {date: "2026-09-29", fb: 860, gg: 245, fulfill: 370, api: 16, revSEK: 13500},
-            {date: "2026-09-30", fb: 920, gg: 265, fulfill: 400, api: 17, revSEK: 14500},
-            {date: "2026-10-01", fb: 980, gg: 280, fulfill: 420, api: 18, revSEK: 15200},
-            {date: "2026-10-02", fb: 890, gg: 255, fulfill: 380, api: 16, revSEK: 13800},
-            {date: "2026-10-03", fb: 1050, gg: 300, fulfill: 450, api: 20, revSEK: 16400},
-            {date: "2026-10-04", fb: 1120, gg: 320, fulfill: 480, api: 21, revSEK: 17500},
-            {date: "2026-10-05", fb: 950, gg: 270, fulfill: 410, api: 18, revSEK: 14900},
-            {date: "2026-10-06", fb: 880, gg: 250, fulfill: 380, api: 16, revSEK: 13700},
-            {date: "2026-10-07", fb: 1020, gg: 290, fulfill: 440, api: 19, revSEK: 15900},
-            {date: "2026-10-08", fb: 870, gg: 245, fulfill: 370, api: 16, revSEK: 13500},
-            {date: "2026-10-09", fb: 790, gg: 220, fulfill: 340, api: 14, revSEK: 12200},
-            {date: "2026-10-10", fb: 910, gg: 260, fulfill: 390, api: 17, revSEK: 14200},
-            {date: "2026-10-11", fb: 1150, gg: 330, fulfill: 500, api: 22, revSEK: 18000},
-            {date: "2026-10-12", fb: 960, gg: 275, fulfill: 415, api: 18, revSEK: 15000},
-            {date: "2026-10-13", fb: 1080, gg: 310, fulfill: 465, api: 20, revSEK: 16900},
-            {date: "2026-10-14", fb: 820, gg: 230, fulfill: 350, api: 15, revSEK: 12800},
-            {date: "2026-10-15", fb: 940, gg: 270, fulfill: 405, api: 18, revSEK: 14700},
-            {date: "2026-10-16", fb: 990, gg: 285, fulfill: 430, api: 19, revSEK: 15500},
-            {date: "2026-10-17", fb: 850, gg: 240, fulfill: 365, api: 16, revSEK: 13300},
-            {date: "2026-10-18", fb: 1040, gg: 300, fulfill: 450, api: 20, revSEK: 16300},
-            {date: "2026-10-19", fb: 910, gg: 260, fulfill: 395, api: 17, revSEK: 14300},
-            {date: "2026-10-20", fb: 970, gg: 280, fulfill: 420, api: 18, revSEK: 15200},
-            {date: "2026-10-21", fb: 1020, gg: 295, fulfill: 440, api: 19, revSEK: 16000},
-            {date: "2026-10-22", fb: 1100, gg: 315, fulfill: 475, api: 21, revSEK: 17200},
-            {date: "2026-10-23", fb: 1130, gg: 325, fulfill: 490, api: 22, revSEK: 17700},
-            {date: "2026-10-24", fb: 1180, gg: 340, fulfill: 510, api: 23, revSEK: 18500},
-            {date: "2026-10-25", fb: 1250, gg: 360, fulfill: 540, api: 24, revSEK: 19600},
-            {date: "2026-10-26", fb: 1160, gg: 335, fulfill: 500, api: 22, revSEK: 18200},
-            {date: "2026-10-27", fb: 1210, gg: 350, fulfill: 520, api: 23, revSEK: 19000},
-            {date: "2026-10-28", fb: 1190, gg: 345, fulfill: 515, api: 23, revSEK: 18700},
-            {date: "2026-10-29", fb: 1320, gg: 380, fulfill: 570, api: 26, revSEK: 20800},
-            {date: "2026-10-30", fb: 1380, gg: 400, fulfill: 600, api: 27, revSEK: 21800},
-            {date: "2026-10-31", fb: 1240, gg: 355, fulfill: 535, api: 24, revSEK: 19500},
-            {date: "2026-11-01", fb: 1110, gg: 320, fulfill: 480, api: 21, revSEK: 17400},
-            {date: "2026-11-02", fb: 1280, gg: 370, fulfill: 550, api: 25, revSEK: 20100},
-            {date: "2026-11-03", fb: 1190, gg: 345, fulfill: 515, api: 23, revSEK: 18700},
-            {date: "2026-11-04", fb: 1450, gg: 420, fulfill: 630, api: 28, revSEK: 22900},
-            {date: "2026-11-05", fb: 1520, gg: 440, fulfill: 660, api: 30, revSEK: 24000},
-            {date: "2026-11-06", fb: 1310, gg: 380, fulfill: 570, api: 26, revSEK: 20700},
-            {date: "2026-11-07", fb: 1420, gg: 410, fulfill: 615, api: 28, revSEK: 22400}
-        ];
-
-        let currentTab = 'products';
-
-        function updateDashboard() {
-            const fxSEK = parseFloat(document.getElementById('fxSEK').value) || 0.095;
-            const fxEUR = parseFloat(document.getElementById('fxEUR').value) || 1.08;
-            const fixedCostPct = parseFloat(document.getElementById('fixedCostPct').value) / 100 || 0.10;
-            
-            const filterDate = document.getElementById('filterDate').value;
-            const filterCountry = document.getElementById('filterCountry').value;
-            const filterProduct = document.getElementById('filterProduct').value;
-            const filterChannel = document.getElementById('filterChannel').value;
-
-            // Filter daily data based on date selection
-            let filteredDays = dailyData.filter(d => {
-                if (filterDate === 'sep') return d.date >= '20
+            {d:"2026-09-15", se_rev:0, se_ord:0, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:0.12, fb_no:0, fb_p1:0, fb_p2:0, gg_se:5.5, gg_no:0.27, ful_eur:0, api_usd:0},
+            {d:"2026-09-16", se_rev:1463, se_ord:3, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:22.02, fb_no:0, fb_p1:0, fb_p2:0, gg_se:8.07, gg_no:0.15, ful_eur:13.09, api_usd:0},
+            {d:"2026-09-17", se_rev:1058, se_ord:2, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:25.18, fb_no:0, fb_p1:0, fb_p2:0, gg_se:9.48, gg_no:0.46, ful_eur:52.08, api_usd:0},
+            {d:"2026-09-18", se_rev:399, se_ord:1, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:24.99, fb_no:0, fb_p1:0, fb_p2:0, gg_se:10.32, gg_no:0, ful_eur:23.95, api_usd:0},
+            {d:"2026-09-19", se_rev:429, se_ord:1, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:26.78, fb_no:0, fb_p1:0, fb_p2:0, gg_se:4.65, gg_no:0.38, ful_eur:26.55, api_usd:0},
+            {d:"2026-09-20", se_rev:1137, se_ord:2, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:26.86, fb_no:0, fb_p1:0, fb_p2:0, gg_se:8.07, gg_no:0.69, ful_eur:12.6, api_usd:0},
+            {d:"2026-09-21", se_rev:1744, se_ord:4, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:27.58, fb_no:0, fb_p1:0, fb_p2:0, gg_se:9.79, gg_no:0.17, ful_eur:25.2, api_usd:0},
+            {d:"2026-09-22", se_rev:454, se_ord:1, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:28.18, fb_no:0, fb_p1:0, fb_p2:0, gg_se:7.53, gg_no:0.35, ful_eur:52.71, api_usd:0},
+            {d:"2026-09-23", se_rev:1121.15, se_ord:2, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:26.7, fb_no:0, fb_p1:0, fb_p2:0, gg_se:5.22, gg_no:1.48, ful_eur:13.09, api_usd:0},
+            {d:"2026-09-24", se_rev:1926, se_ord:4, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:329, p2_ord:1, fb_se:25.12, fb_no:0, fb_p1:0, fb_p2:10.33, gg_se:7.66, gg_no:1.22, ful_eur:25.2, api_usd:0},
+            {d:"2026-09-25", se_rev:1287, se_ord:3, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:18.3, fb_no:0, fb_p1:0, fb_p2:5.18, gg_se:11.63, gg_no:0.92, ful_eur:61.29, api_usd:0},
+            {d:"2026-09-26", se_rev:937, se_ord:2, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:329, p2_ord:1, fb_se:24.3, fb_no:0, fb_p1:0, fb_p2:6.71, gg_se:5.8, gg_no:0.31, ful_eur:38.94, api_usd:0},
+            {d:"2026-09-27", se_rev:2225, se_ord:5, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:349, p2_ord:1, fb_se:31.59, fb_no:0, fb_p1:0, fb_p2:7.89, gg_se:29.95, gg_no:3.72, ful_eur:23.38, api_usd:0},
+            {d:"2026-09-28", se_rev:3020, se_ord:7, no_rev:458, no_ord:1, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:678, p2_ord:2, fb_se:43.4, fb_no:0, fb_p1:0, fb_p2:26.86, gg_se:24.67, gg_no:1.48, ful_eur:64.55, api_usd:0},
+            {d:"2026-09-29", se_rev:1463, se_ord:3, no_rev:518, no_ord:1, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:0, p2_ord:0, fb_se:34.25, fb_no:0, fb_p1:0, fb_p2:16.71, gg_se:32.95, gg_no:2.14, ful_eur:97.14, api_usd:0},
+            {d:"2026-09-30", se_rev:3212, se_ord:6, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:1656, p2_ord:4, fb_se:37.39, fb_no:0, fb_p1:0, fb_p2:25.19, gg_se:21.38, gg_no:0.96, ful_eur:52.27, api_usd:0},
+            {d:"2026-10-01", se_rev:2261, se_ord:5, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:678, p2_ord:2, fb_se:57.16, fb_no:0, fb_p1:0, fb_p2:45.28, gg_se:36.28, gg_no:1.74, ful_eur:75.15, api_usd:0},
+            {d:"2026-10-02", se_rev:2362, se_ord:5, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:329, p2_ord:1, fb_se:50.11, fb_no:0, fb_p1:0, fb_p2:36.98, gg_se:37.66, gg_no:4.12, ful_eur:61.99, api_usd:0},
+            {d:"2026-10-03", se_rev:1363, se_ord:3, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:329, p2_ord:1, fb_se:43.09, fb_no:0, fb_p1:0, fb_p2:31.59, gg_se:29.04, gg_no:4.05, ful_eur:76.57, api_usd:0},
+            {d:"2026-10-04", se_rev:3062, se_ord:7, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:1007, p2_ord:3, fb_se:56.83, fb_no:0, fb_p1:0, fb_p2:43.28, gg_se:33.95, gg_no:5.07, ful_eur:35.87, api_usd:0},
+            {d:"2026-10-05", se_rev:4578.15, se_ord:9, no_rev:877, no_ord:2, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:1745, p2_ord:5, fb_se:68.18, fb_no:0, fb_p1:0, fb_p2:54.51, gg_se:28.69, gg_no:5.79, ful_eur:76.02, api_usd:0},
+            {d:"2026-10-06", se_rev:3542, se_ord:8, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:1376, p2_ord:4, fb_se:95.36, fb_no:0, fb_p1:0, fb_p2:81.89, gg_se:63.6, gg_no:6.2, ful_eur:132.55, api_usd:0},
+            {d:"2026-10-07", se_rev:5606.95, se_ord:13, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:3002.95, p2_ord:9, fb_se:94.57, fb_no:15.17, fb_p1:0, fb_p2:82.61, gg_se:59.89, gg_no:8.21, ful_eur:101.66, api_usd:0},
+            {d:"2026-10-08", se_rev:4316, se_ord:10, no_rev:438, no_ord:1, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:1725, p2_ord:5, fb_se:130.65, fb_no:29.93, fb_p1:0, fb_p2:118.23, gg_se:68.6, gg_no:9.26, ful_eur:165.43, api_usd:0},
+            {d:"2026-10-09", se_rev:3202, se_ord:7, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:698, p2_ord:2, fb_se:135.42, fb_no:29.11, fb_p1:0, fb_p2:120.72, gg_se:78.19, gg_no:8.36, ful_eur:129.8, api_usd:0},
+            {d:"2026-10-10", se_rev:4634.7, se_ord:10, no_rev:1105, no_ord:2, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:2344, p2_ord:7, fb_se:122.97, fb_no:29.38, fb_p1:0, fb_p2:102.31, gg_se:64.5, gg_no:5.62, ful_eur:81.81, api_usd:0},
+            {d:"2026-10-11", se_rev:6876, se_ord:15, no_rev:1326, no_ord:3, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:3062, p2_ord:9, fb_se:151.78, fb_no:32.39, fb_p1:0, fb_p2:126.97, gg_se:88.91, gg_no:7.26, ful_eur:136.4, api_usd:0},
+            {d:"2026-10-12", se_rev:6267, se_ord:14, no_rev:518, no_ord:1, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:2713, p2_ord:8, fb_se:175.66, fb_no:28.43, fb_p1:0, fb_p2:144.36, gg_se:88.36, gg_no:10.97, ful_eur:230.69, api_usd:0},
+            {d:"2026-10-13", se_rev:7043.1, se_ord:16, no_rev:0, no_ord:0, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:4030.1, p2_ord:12, fb_se:207.25, fb_no:29.51, fb_p1:0, fb_p2:176.62, gg_se:86.26, gg_no:9.26, ful_eur:165.43, api_usd:0},
+            {d:"2026-10-14", se_rev:6250.3, se_ord:14, no_rev:1515, no_ord:3, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:2015.3, p2_ord:6, fb_se:221.72, fb_no:41.29, fb_p1:0, fb_p2:184.58, gg_se:113.11, gg_no:8.22, ful_eur:197.69, api_usd:0},
+            {d:"2026-10-15", se_rev:6819.7, se_ord:15, no_rev:458, no_ord:1, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:2975.7, p2_ord:9, fb_se:218.49, fb_no:51.02, fb_p1:0, fb_p2:163.69, gg_se:122.92, gg_no:10.89, ful_eur:221.75, api_usd:0},
+            {d:"2026-10-16", se_rev:7408.76, se_ord:16, no_rev:1435, no_ord:3, ot_rev:0, ot_ord:0, p1_rev:0, p1_ord:0, p2_rev:1966.76, p2_ord:6, fb_se:209.61, fb_no:51.84, fb_p1:0, fb_p2:143.71, gg_se:120.72, gg_no:11.66, ful_eur:176.43, api_usd:33.3955},
+            {d:"2026-10-17", se_rev:5297.1, se_ord:12, no_rev:1574, no_ord:3, ot_rev:0, ot_ord:0, p1_rev:399, p1_ord:1, p2_rev:2335.1, p2_ord:7, fb_se:217.52, fb_no:50.11, fb_p1:2.28, fb_p2:145.45, gg_se:126.91, gg_no:11.09, ful_eur:250.32, api_usd:25.1572},
+            {d:"2026-10-18", se_rev:10051.21, se_ord:21, no_rev:1954, no_ord:4, ot_rev:0, ot_ord:0, p1_rev:1197, p1_ord:3, p2_rev:2984.8, p2_ord:9, fb_se:261.29, fb_no:62.14, fb_p1:16.71, fb_p2:165.48, gg_se:151.14, gg_no:12.6, ful_eur:194.25, api_usd:25.4959},
+            {d:"2026-10-19", se_rev:11132.48, se_ord:23, no_rev:1416, no_ord:3, ot_rev:0, ot_ord:0, p1_rev:2025, p1_ord:5, p2_rev:2364.8, p2_ord:7, fb_se:286.65, fb_no:70.21, fb
